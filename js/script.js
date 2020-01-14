@@ -8,7 +8,19 @@ var numRandomArray = [];
 
 for ( var i = 0; i <= 15; i++) {
   var numbersRandom = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-  console.log(numbersRandom);
   numRandomArray.push(numbersRandom);
 }
 console.log(numRandomArray);
+
+//------- INSERISCI 84 NUMERI ----------------
+
+//            COL WHILE
+
+var i = 0;
+
+while (i < 5) {
+  var userNumber = parseInt(prompt('Inserisci un numero!'))
+  console.log(userNumber);
+
+  i++;
+}
