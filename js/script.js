@@ -21,9 +21,10 @@ var i = 0;
 while (i < 5) {
   var userNumber = parseInt(prompt('Inserisci un numero!'))
   console.log(userNumber);
-  if (userNumber == numRandomArray[i]) {
-    alert('BUUUUUM! SEI BRILLATO MAN E NON IN SENSO BUONO');
-    console.log('BUUUUUM! SEI BRILLATO MAN E NON IN SENSO BUONO');
-  }
   i++;
+}
+if (userNumber != numRandomArray[i]) {
+  console.log('NUMERO FORTUNATO');
+} else {
+  console.log('BUUUUUM! SEI BRILLATO MAN E NON IN SENSO BUONO');
 }
