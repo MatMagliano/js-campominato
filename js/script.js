@@ -1,30 +1,65 @@
 // alert('Hello')
+var arrayNumUser = [];
+var tries = 5;
+var counter = 0;
 
-var numRandomArray = [];
 
 //------- GENERA 16 NUMERI RANDOM ----------------
 
-//            COL FOR
-
-for ( var i = 0; i <= 15; i++) {
-  var numbersRandom = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-  numRandomArray.push(numbersRandom);
+// while (numRandomArray.length < 16) {
+//   var numbersRandom = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+//
+//   if (numRandomArray.includes(numbersRandom) == false) {
+//     numRandomArray.push(numbersRandom);
+//   }
+// }
+// console.log(numRandomArray);
+var numRandomArray = [];
+while (numRandomArray.length < 16) {
+  var numbersRandom = getRandomNumber(1, 100);
+  var find = isInArray(numRandomArray, numbersRandom);
+  if (find == false) {
+    numRandomArray.push(numbersRandom)
+  }
 }
-console.log(numRandomArray);
+console.log(numRandomArray.sort());
 
-//------- INSERISCI 84 NUMERI ----------------
 
-//            COL WHILE
+//------- INSERIMENTO CONTROLLO NUMERI ----------------
 
-var i = 0;
 
-while (i < 5) {
-  var userNumber = parseInt(prompt('Inserisci un numero!'))
-  console.log(userNumber);
-  i++;
+var findBomb = false;
+while (arrayNumUser.length < tries && findBomb == false) {
+  var userNumber = parseInt(prompt('Inserisci un numero da 1 a 100!'));
+    if (isInArray(arrayNumUser == userNumber) == false) {
+      arrayNumUser.push(userNumber)
+    }
 }
-if (userNumber != numRandomArray[i]) {
-  console.log('NUMERO FORTUNATO');
-} else {
-  console.log('BUUUUUM! SEI BRILLATO MAN E NON IN SENSO BUONO');
+
+console.log(arrayNumUser);
+
+//------- FUNCTION ----------------
+
+//      GET RANDOM NUMBER
+
+function getRandomNumber(numMin, numMax) {
+  numMin = Math.ceil(numMin);
+  numMax = Math.floor(numMax);
+  var result = Math.floor(Math.random() * (numMax - numMin + 1)) + numMin;
+  return result
+}
+
+//      CHECK NUMBER
+
+
+function isInArray(array, element) {
+  var i = 0;
+  var result = false;
+  while (i < array.length && result == false) {
+    if (array[i] == element) {
+      result = true;
+    }
+    i ++;
+  }
+  return result;
 }
