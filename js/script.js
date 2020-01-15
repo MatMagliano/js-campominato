@@ -1,7 +1,8 @@
 // alert('Hello')
 var arrayNumUser = [];
-var tries = 3;
+var tries = 10;
 var points = 0;
+var message = 'Hai Vinto'
 
 
 //------- GENERA 16 NUMERI RANDOM ----------------
@@ -35,11 +36,19 @@ while (arrayNumUser.length < tries && findBomb == false) {
     var userNumber = parseInt(prompt('Inserisci un numero da 1 a 100!'));
     console.log('Il numero inserito è' + ' ' + rangeNumber(1, 100, userNumber));
   } while (rangeNumber(1, 100, userNumber) == false);
+  if (isInArray(arrayNumUser, userNumber) == false) {
+    arrayNumUser.push(userNumber);
+    if (isInArray(numRandomArray, userNumber) == true) {
+      message = 'Hai Perso';
+      findBomb = true;
+    } else {
+      points++;
+    }
 
-  
+  }
 }
-
 console.log(arrayNumUser);
+console.log(message + ' ' + points);
 
 //------- FUNCTION ----------------
 
