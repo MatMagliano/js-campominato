@@ -1,7 +1,7 @@
 // alert('Hello')
 var arrayNumUser = [];
-var tries = 5;
-var counter = 0;
+var tries = 3;
+var points = 0;
 
 
 //------- GENERA 16 NUMERI RANDOM ----------------
@@ -30,10 +30,13 @@ console.log(numRandomArray.sort());
 
 var findBomb = false;
 while (arrayNumUser.length < tries && findBomb == false) {
-  var userNumber = parseInt(prompt('Inserisci un numero da 1 a 100!'));
-    if (isInArray(arrayNumUser == userNumber) == false) {
-      arrayNumUser.push(userNumber)
-    }
+  var userNumber = false;
+  do {
+    var userNumber = parseInt(prompt('Inserisci un numero da 1 a 100!'));
+    console.log('Il numero inserito è' + ' ' + rangeNumber(1, 100, userNumber));
+  } while (rangeNumber(1, 100, userNumber) == false);
+
+  
 }
 
 console.log(arrayNumUser);
@@ -49,7 +52,7 @@ function getRandomNumber(numMin, numMax) {
   return result
 }
 
-//      CHECK NUMBER
+//      CHECK NUMBER IN ARRAY
 
 
 function isInArray(array, element) {
@@ -60,6 +63,16 @@ function isInArray(array, element) {
       result = true;
     }
     i ++;
+  }
+  return result;
+}
+
+//      RANGE NUMERI SELEZIONABILI
+
+function rangeNumber(min, max, number) {
+  var result = false;
+  if (number >= min && number <= max) {
+    result = true;
   }
   return result;
 }
