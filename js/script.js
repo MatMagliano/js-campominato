@@ -1,6 +1,6 @@
 // alert('Hello')
 var arrayNumUser = [];
-var tries = 10;
+var tries = 84;
 var points = 0;
 var message = 'Hai Vinto'
 
@@ -34,12 +34,12 @@ while (arrayNumUser.length < tries && findBomb == false) {
   var userNumber = false;
   do {
     var userNumber = parseInt(prompt('Inserisci un numero da 1 a 100!'));
-    console.log('Il numero inserito è' + ' ' + rangeNumber(1, 100, userNumber));
+    console.log('Il numero inserito è ' + userNumber + ' ed è ' + rangeNumber(1, 100, userNumber));
   } while (rangeNumber(1, 100, userNumber) == false);
   if (isInArray(arrayNumUser, userNumber) == false) {
     arrayNumUser.push(userNumber);
     if (isInArray(numRandomArray, userNumber) == true) {
-      message = 'Hai Perso';
+      message = 'Hai Perso, il numero ' + userNumber + ' è minato!';
       findBomb = true;
     } else {
       points++;
